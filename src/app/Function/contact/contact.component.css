@@ -1,0 +1,49 @@
+select {
+    width: 267px;
+    height: 81px;
+    appearance: none;
+    outline: none;
+    padding-left: 30px;
+}
+
+input {
+    width: 529px;
+    height: 81px;
+    padding-left: 30px;
+    outline: none;
+}
+
+button {
+    width: 294px;
+    height: 81px;
+}
+
+.line {
+    border: 1px solid #8C8C8C;
+}
+
+.wrapper {
+    border-bottom: 1px solid #8C8C8C; ;
+}
+
+.btn-application {
+    width: 222px;
+    height: 61px;
+}
+
+img {
+    padding-right: 8px;
+}
+
+span {
+    padding-right: 8px;
+}
+
+p {
+    width: 24px;
+    height: 24px;
+    border: 0.75px solid #BFBFBF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+}

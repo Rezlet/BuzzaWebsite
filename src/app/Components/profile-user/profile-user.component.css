@@ -1,0 +1,34 @@
+
+.header-profile-user {}
+
+.header-profile-user-left {
+    flex: 1;
+    gap: 10px;
+}
+
+.header-profile-user-left-name {
+    background-color: #fffbe6;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+.header-profile-user-left-name p {
+    color: #ffc53d;
+    font-size: 24px;
+    width: 100%;
+    height: 100%;
+}
+
+.header-profile-user-left-info>div {
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.header-profile-details-list {
+    gap: 20px;
+}
+
+.header-profile-details-list-item>.text-grey:hover {
+    color: #000;
+}

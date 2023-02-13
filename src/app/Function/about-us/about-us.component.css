@@ -1,0 +1,103 @@
+
+
+.about-us-logo {
+    gap: 8%;
+}
+
+h1 {
+    width: 308px;
+}
+
+p {
+    width: 565px;
+}
+
+.about-us-item {
+    background-color: #FFC53D;
+    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+.about-us-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.about-us-item:nth-child(1) {
+    width: 136px;
+    height: 140px;
+    top: 6%;
+    left: -8%;
+}
+
+.about-us-item:nth-child(2) {
+    width: 103px;
+    height: 106px;
+    top: 8%;
+    right: 36%;
+}
+
+.about-us-item:nth-child(3) {
+    width: 103px;
+    height: 106px;
+    bottom: 8%;
+    right: 46%;
+}
+
+.separate::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 12px solid #FFC53D;
+    height: 220px;
+    left: -4%;
+}
+
+.separate-2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 12px solid #FFC53D;
+    height: 220px;
+    left: 0;
+    top: -2%;
+}
+
+.separate-after::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 12px solid #FFC53D;
+    height: 220px;
+    right: -2%;
+    top: -2%;
+}
+
+.detail-list {
+    width: 558px;
+    height: 176px;
+    padding: 27px 32px 31px 45px;
+}
+
+.detail-list h1 {
+    left: -8%;
+    top: 50%;
+    width: 82px;
+    height: 82px;
+    text-align: center;
+    line-height: 82px;
+    transform: translateY(-50%);
+}
+
+.detail-list > p {
+    width: 481px;
+    height: 90px;
+}
+
+.leader-box {
+    padding: 50px 0;
+    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+.leader-box > div > div > h5 {
+    width: 526px;
+}

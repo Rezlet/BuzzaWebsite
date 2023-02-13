@@ -1,0 +1,21 @@
+.voucher-list {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.voucher-item {
+  flex-shrink: 0;
+}
+
+.voucher-item > div {
+  text-decoration: none;
+  overflow: hidden;
+  width: 490px;
+}
+
+.voucher-list::-webkit-scrollbar {
+  width: 0px;
+}

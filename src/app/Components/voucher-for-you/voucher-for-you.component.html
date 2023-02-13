@@ -1,0 +1,48 @@
+<div class="mt-5">
+  <div class="d-flex justify-content-between mb-3 cs-p">
+    <h5 class="text-default f-24 fw-bold">Dành cho bạn</h5>
+
+    <button class="d-flex align-item-center text-yellow fw-bold f-16 gap-2">
+      <p>Xem tất cả</p>
+      <div class="h-100">
+        <img
+          class="trans-y-10"
+          src="assets\images\buzza\angles-right.png"
+          alt=""
+        />
+      </div>
+    </button>
+  </div>
+
+  <ul class="voucher-list">
+    <swiper
+      [config]="config"
+      #gallery
+      [navigation]="true"
+      [virtual]="true"
+      class="pb-4 px-4"
+    >
+      <ng-template
+        swiperSlide
+        class="bg-white shadow border-r-15"
+        *ngFor="let item of vouchers"
+      >
+        <li class=" border-r-15">
+          <div class="bg-white d-flex p-4 gap-4 border-15">
+            <div>
+              <img [src]="item.src" alt="" />
+            </div>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p class="f-16 fw-400 w-222 mt-2 mb-2">{{ item.text }}</p>
+              <button class="bgc-yellow text-w border-15 p-10-20">
+                {{ item.btn }}
+                <img src="assets/images/buzza/star.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </li>
+      </ng-template>
+    </swiper>
+  </ul>
+</div>

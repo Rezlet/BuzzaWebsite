@@ -1,0 +1,14 @@
+<div class="d-flex flex-column gap-20">
+  <div class="voucher-item d-flex border-20 bg-white align-items-center shadow">
+    <div class="voucher-left p-3 position-relative">
+      <img [src]="item.src" alt="" />
+    </div>
+    <div class="line ms-3 me-4"></div>
+    <div class="voucher-right">
+      <h3 class="f-16 fw-500 line-height-32 text-default">{{ item.title }}</h3>
+      <h5 class="f-14 fw-400 line-height-24 text-orange mt-4">
+        {{ item.expiry }}
+      </h5>
+    </div>
+  </div>
+</div>

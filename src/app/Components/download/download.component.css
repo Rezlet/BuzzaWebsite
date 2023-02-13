@@ -1,0 +1,38 @@
+.wrapper {
+    height: 369px;
+}
+
+.brand-list > img {
+    width: 126px;
+    height: 44px;
+    filter: brightness(50%) grayscale(100%);
+}
+
+.brand-list > img:hover {
+    filter: brightness(100%) grayscale(0%);
+}
+
+.brand-list h2 {
+    width: 88px;
+    height: 46px;
+    margin-right: 70px;
+}
+
+p {
+    width: 318px;
+    height: 44px;
+}
+
+.separate::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #fff;
+    height: 100%;
+    left: -24%;
+}
+
+.title > h2,
+p {
+    margin-left: 58px;
+}

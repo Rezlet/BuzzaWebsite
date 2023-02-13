@@ -1,0 +1,43 @@
+<div [@fadeInOut] class="contact mt-5 mb-5">
+    <div class="container">
+        <app-carousel></app-carousel>
+        <div class="mt-5">
+            <div class="d-flex justify-content-between">
+                <select class="shadow border-20 bgc-white-light f-24 fw-400 text-grey-light">
+                    <option disabled selected hidden>Chọn chức vụ</option>
+                    <option *ngFor="let position of positions">{{ position }}</option>
+                </select>
+                <input class="shadow border-20 bgc-white-light f-24 fw-400 text-grey-light" type="text" placeholder="Nhập vị trí bạn muốn tìm...">
+                <button class="bgc-yellow border-20 f-30 fw-500 text-w">Tìm kiếm</button>
+            </div>
+        </div>
+        <div class="line mt-5 mb-4"></div>
+        <h2 class="f-30 fw-500 text-grey-light text-center">{{ workTitle }}</h2>
+        <div *ngFor="let work of works" class="wrapper d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="mt-2">{{ work.title }}</h2>
+                <div class="mt-2 mb-2">
+                    <img [src]="work.srcTime" alt="">
+                    <span>{{ work.textTime }}</span>
+                    <img [src]="work.srcLocation" alt="">
+                    <span>{{ work.textLocation }}</span>
+                    <img [src]="work.srcSalary" alt="">
+                    <span>{{ work.textSalary }}</span>
+                </div>
+                <div class="mb-3">
+                    <img [src]="work.srcCalendar" alt="">
+                    <span>{{ work.textCalendar }}</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn-application bgc-yellow border-15 f-22 fw-500 text-w">{{ work.btn }}</button>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+        </div>
+    </div>
+</div>

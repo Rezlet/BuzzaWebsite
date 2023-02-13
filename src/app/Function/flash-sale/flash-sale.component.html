@@ -1,0 +1,49 @@
+<div [@fadeInOut] class="contact mt-4 mb-4">
+  <div class="container">
+    <div
+      class="d-flex gap-3 text-white fw-400 index-middle container text-default cursor-pointer align-items-center mb-4"
+    >
+      <span>Trang chủ</span>
+      <div class="h-100">
+        <img src="assets/images/angle-right.svg" class="trans-y-10" alt="" />
+      </div>
+      <span>Flash sale</span>
+      <div class="h-100">
+        <img src="assets/images/buzza/flash-sale.png" alt="" />
+      </div>
+
+      <div class="d-flex gap-2 justify-content-center">
+        <div
+          class="px-11 py-2 text-center bg-black fz-16 text-white fw-bold border-r-10"
+        >
+          <h6 class="fw-700 fz-16">05</h6>
+        </div>
+        <div
+          class="px-11 py-2 text-center bg-black fz-16 text-white fw-bold border-r-10"
+        >
+          <h6 class="fw-700 fz-16">30</h6>
+        </div>
+        <div
+          class="px-11 py-2 text-center bg-black fz-16 text-white fw-bold border-r-10"
+        >
+          <h6 class="fw-700 fz-16">03</h6>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center gap-20 flex-wrap">
+      <div *ngFor="let food of foodlist">
+        <app-food-item [item]="food"></app-food-item>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+      <div class="flex-1 h-100">
+        <img src="assets/images/flash-sale-1.png" alt="" />
+      </div>
+
+      <div class="flex-1 h-100">
+        <img src="assets/images/flash-sale-2.png" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

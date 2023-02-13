@@ -1,0 +1,417 @@
+<div [ngClass]="{ dark: config.isDark }" class="header">
+  <div class="header-container d-flex align-items-center container">
+    <div class="header-container-left">
+      <a [routerLink]="config.title + '/home'"
+        ><img [src]="config.src" alt="logo Buzza"
+      /></a>
+    </div>
+
+    <div class="header-container-right w-100 d-flex">
+      <div class="header-container-right-top d-flex justify-content-end">
+        <div class="header-container-right-top-item">
+          <div class="header-container-right-top-item-contain d-flex">
+            <img src="assets/images/buzza/vn.png" alt="Việt nam" />
+            <img src="assets/images/buzza/en.png" alt="English" />
+          </div>
+        </div>
+
+        <div class="header-container-right-top-item">
+          <a class="">
+            <p
+              [ngClass]="{
+                'text-w': config.isDark,
+                'text-default': !config.isDark
+              }"
+            >
+              Trợ giúp
+            </p>
+          </a>
+        </div>
+
+        <div class="header-container-right-top-item position-relative">
+          <a (click)="toggleProfile()">
+            <img src="assets/images/buzza/avatar.png" alt="your avatar" />
+          </a>
+
+          <!-- POPUP profile -->
+          <!-- <div *ngIf="isShowProfile" class="header-profile">
+            <app-profile-user></app-profile-user>
+            <app-login-layout></app-login-layout>
+          </div> -->
+
+          <app-login-layout [show]="isShowProfile" (emit)="catchEmit($event)"></app-login-layout>
+        </div>
+
+        <div class="header-container-right-top-item">
+          <div
+            (click)="toggleLocation()"
+            class="header-container-right-top-item-contain d-flex gap-8"
+          >
+            <div class="h-100">
+              <img
+                *ngIf="config.isDark"
+                src="assets/images/buzza/location.png"
+                class="trans-y-10"
+                alt="location"
+              />
+
+              <img
+                *ngIf="!config.isDark"
+                src="assets/images/buzza/location-dark.png"
+                class="trans-y-10"
+                alt="location"
+              />
+            </div>
+            <p
+              [ngClass]="{
+                'text-w': config.isDark,
+                'text-default': !config.isDark
+              }"
+            >
+              Ho Chi Minh city
+            </p>
+          </div>
+
+          <!-- POPUP Location -->
+          <div *ngIf="isShowLocation" class="header-location popup-common">
+            <button class="close-popup" (click)="toggleLocation()">
+              <img src="assets/images/buzza/close.png" alt="" />
+            </button>
+            <div class="header-location-container">
+              <h4 class="title-popup">Chọn vị trí và ngôn ngữ</h4>
+              <form action="" class="header-location-form">
+                <div
+                  class="header-location-form-choice d-flex align-items-center flex-wrap"
+                >
+                  <label for="location" class="w-100 f-14 text-grey-w"
+                    >Chọn vị trí của bạn</label
+                  >
+                  <div class="h-100 d-flex align-items-center m-0">
+                    <img
+                      src="assets/images/buzza/location-black.png"
+                      class=""
+                      alt="location"
+                    />
+                  </div>
+                  <select name="location" id="location">
+                    <option value="Bình Dương">Bình Dương</option>
+                    <option value="Đồng Nai">Đồng Nai</option>
+                    <option value="Bà Rịa Vũng tàu">Bà Rịa Vũng tàu</option>
+                    <option selected value="Hồ Chí Minh">Hồ Chí Minh</option>
+                  </select>
+                </div>
+
+                <div
+                  class="header-location-form-language d-flex align-items-center flex-wrap"
+                >
+                  <label for="language" class="w-100 f-14 text-grey-w"
+                    >Chọn ngôn ngữ</label
+                  >
+
+                  <div class="d-flex align-items-center">
+                    <input
+                      type="radio"
+                      name="language"
+                      id="vn"
+                      checked
+                      value="Tiếng Việt"
+                    />
+                    <label for="vn">Tiếng Việt</label>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <input
+                      type="radio"
+                      name="language"
+                      id="en"
+                      value="Tiếng Anh"
+                    />
+                    <label for="en">Tiếng Anh</label>
+                  </div>
+                </div>
+                <div class="header-location-button d-flex justify-content-end">
+                  <button class="text-default f-16" type="button">
+                    Hoàn tất
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-container-right-bottom position-relative">
+        <div
+          *ngIf="config.isMain"
+          class="header-container-right-bottom-list d-flex"
+        >
+          <div class="header-container-right-bottom-list-item">
+            <a routerLink="namsan/about" class="d-flex align-items-center">
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Về chúng tôi
+              </p>
+            </a>
+          </div>
+
+          <div class="header-container-right-bottom-list-item">
+            <a
+              routerLink="namsan/recruitment"
+              class="d-flex align-items-center"
+            >
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Tuyển dụng
+              </p>
+            </a>
+          </div>
+
+          <div class="header-container-right-bottom-list-item">
+            <a routerLink="namsan/contact" class="d-flex align-items-center">
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Liên hệ
+              </p>
+            </a>
+          </div>
+
+          <div class="header-container-right-bottom-list-item">
+            <a routerLink="namsan/order" class="d-flex align-items-center">
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Đặt món
+              </p>
+            </a>
+          </div>
+
+          <div
+            class="header-container-right-bottom-list-item position-relative"
+          >
+            <button
+              *ngIf="config.isDark"
+              (click)="toggleCart()"
+              class="d-flex align-items-center background-transparent"
+            >
+              <img src="assets/images/buzza/cart.png" alt="" />
+            </button>
+
+            <button
+              *ngIf="!config.isDark"
+              (click)="toggleCart()"
+              class="d-flex align-items-center background-transparent"
+            >
+              <img src="assets/images/buzza/cart-dark.png" alt="" />
+            </button>
+            <!-- POPUP cart -->
+            <div
+              *ngIf="isShowCart"
+              class="header-cart d-flex flex-column justify-content-end"
+            >
+              <button class="mini-close-popup" (click)="toggleCart()">
+                <img src="assets/images/buzza/mini-close.png" alt="" />
+              </button>
+              <div>
+                <div
+                  *ngIf="orderItem < 0; then condition1; else condition2"
+                ></div>
+                <ng-template #condition1>
+                  <div>
+                    <div
+                      class="header-cart-empty d-flex justify-content-center"
+                    >
+                      <img src="assets/images/buzza/empty-cart.png" alt="" />
+                    </div>
+                    <div class="header-cart-button">
+                      <button
+                        class="d-flex justify-content-center w-100 f-16 text-w"
+                      >
+                        <img
+                          src="assets/images/buzza/plus-circle.png"
+                          alt="Thêm vào giỏ hàng"
+                        />
+                        <p>Thêm món vào giỏ hàng ngay</p>
+                      </button>
+                    </div>
+                  </div>
+                </ng-template>
+                <ng-template #condition2>
+                  <div>123123123</div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="!config.isMain"
+          class="header-container-right-bottom-list d-flex"
+        >
+          <div class="header-container-right-bottom-list-item">
+            <a
+              [routerLink]="config.title + '/news'"
+              class="d-flex align-items-center"
+            >
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Tin tức
+              </p>
+            </a>
+          </div>
+
+          <div class="header-container-right-bottom-list-item">
+            <a
+              [routerLink]="config.title + '/menu'"
+              class="d-flex align-items-center"
+            >
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Thực đơn
+              </p>
+            </a>
+          </div>
+
+          <div class="header-container-right-bottom-list-item">
+            <a
+              [routerLink]="config.title + '/booking'"
+              class="d-flex align-items-center"
+            >
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Đặt bàn
+              </p>
+            </a>
+          </div>
+
+          <div class="header-container-right-bottom-list-item">
+            <a
+              [routerLink]="config.title + '/voucher'"
+              class="d-flex align-items-center"
+            >
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Ưu đãi
+              </p>
+            </a>
+          </div>
+
+          <div
+            *ngIf="config.isFlashSale"
+            class="header-container-right-bottom-list-item"
+          >
+            <a
+              [routerLink]="config.title + '/flash-sale'"
+              class="d-flex align-items-center"
+            >
+              <p
+                [ngClass]="{
+                  'text-w': config.isDark,
+                  'text-default': !config.isDark
+                }"
+              >
+                Flash sale
+              </p>
+            </a>
+          </div>
+
+          <div
+            *ngIf="config.isFlashSale"
+            class="header-container-right-bottom-list-item"
+          >
+            <a
+              [routerLink]="config.title + '/flash-sale'"
+              class="d-flex align-items-center"
+            >
+              <img src="assets/images/buzza/flash-sale.png" alt="" />
+            </a>
+          </div>
+
+          <div
+            class="header-container-right-bottom-list-item position-relative"
+          >
+            <button
+              *ngIf="config.isDark"
+              (click)="toggleCart()"
+              class="d-flex align-items-center background-transparent"
+            >
+              <img src="assets/images/buzza/cart.png" alt="" />
+            </button>
+
+            <button
+              *ngIf="!config.isDark"
+              (click)="toggleCart()"
+              class="d-flex align-items-center background-transparent"
+            >
+              <img src="assets/images/buzza/cart-dark.png" alt="" />
+            </button>
+            <!-- POPUP cart -->
+            <div
+              *ngIf="isShowCart"
+              class="header-cart d-flex flex-column justify-content-end"
+            >
+              <button class="mini-close-popup" (click)="toggleCart()">
+                <img src="assets/images/buzza/mini-close.png" alt="" />
+              </button>
+              <div class="header-cart-empty d-flex justify-content-center">
+                <img src="assets/images/buzza/empty-cart.png" alt="" />
+              </div>
+
+              <div class="header-cart-button">
+                <button class="d-flex justify-content-center w-100 f-16 text-w">
+                  <img
+                    src="assets/images/buzza/plus-circle.png"
+                    alt="Thêm vào giỏ hàng"
+                  />
+                  <p>Thêm món vào giỏ hàng ngay</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    *ngIf="isShowProfile"
+    (click)="toggleProfile()"
+    class="overlay-transparent"
+  ></button>
+
+  <div
+    *ngIf="isShowLocation"
+    (click)="toggleLocation()"
+    class="overlay-2"
+  ></div>
+  <div *ngIf="isShowCart" (click)="toggleCart()" class="overlay-2"></div>
+</div>

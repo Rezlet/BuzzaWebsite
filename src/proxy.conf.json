@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": " http://buzzaapi.vnyi.com:81",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

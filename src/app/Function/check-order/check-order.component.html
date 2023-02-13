@@ -1,0 +1,41 @@
+<div [@fadeInOut] class="voucher mt-3 mb-5">
+  <div class="container">
+    <div class="d-flex align-items-center gap-56 mb-5">
+      <div class="d-flex gap-3 text-grey-light fw-400">
+        <span>Trang chủ</span>
+        <div class="h-100">
+          <img src="assets/images/angle-right.svg" class="trans-y-10" alt="" />
+        </div>
+        <span>Đơn hàng</span>
+      </div>
+
+      <div class="shadow border-24 ml-5percent">
+        <label class="switch">
+          <input type="checkbox" id="toggle_vat" class="toggle_vat" />
+          <div class="slider round">
+            <span class="slider_text">
+              <span class="f-16 fw-700 off" (click)="toggleTable()"
+                >Đặt bàn</span
+              >
+              <span class="f-16 fw-700 on" (click)="toggleFood()">Đặt món</span>
+            </span>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="d-flex gap-56">
+      <div>
+        <app-profile-user></app-profile-user>
+      </div>
+      <div class="flex-1 position-relative">
+        <div></div>
+        <div [ngClass]="{ 'd-none': showTableDetails }">
+          <app-table-booking-details></app-table-booking-details>
+        </div>
+        <div [ngClass]="{ 'd-none': showDetails }">
+          <app-booking-details></app-booking-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

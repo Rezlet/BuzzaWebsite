@@ -1,0 +1,308 @@
+<div
+  *ngIf="showBooking"
+  (click)="toggleShowBooking()"
+  class="bg-overlay-light fixed-top w-100 h-100"
+></div>
+
+<form
+  #bookingInfo="ngForm"
+  *ngIf="showBooking"
+  class="fixed-bottom container bg-white border-top-xl h-80 animation-bot-to-top scroll-y pb-3 border-r-32"
+  (ngSubmit)="submitToCreateBooking(bookingInfo.value)"
+  style="bottom: 5%; width: calc(100vw * 487 / 1440)"
+  [@fadeInOut]
+>
+  <div class="d-flex flex-column mt-4 p-4">
+    <div class="d-flex gap-2 px-20 flex-column">
+      <h6 class="text-default fw-400 fz-20 limit-line-1 fw-500">
+        Korean Grill BBQ - TTTM Nowzone
+      </h6>
+
+      <h6 class="fz-12 fw-400 text-default">
+        Tầng 4 Nowzone, 235 Nguyễn Văn Cừ, P. Nguyễn Cư Trinh, Q.1, TP. HCM
+      </h6>
+    </div>
+
+
+    <div class="d-flex justify-content-between align-items-center fz-14 fw-400">
+      <h5
+        class="mt-3 fz-16 fw-500 text-default"
+        translate="msg.booking-layout-5"
+      ></h5>
+      <div *ngIf="errors" class="text-red mt-2">{{ errors.amount }}</div>
+    </div>
+    <div class="d-flex gap-2">
+      <!-- adult -->
+      <div
+        class="box-shadow p-3 d-flex justify-content-between border-r-10 mt-2 flex-1 bg-grey-light"
+      >
+        <h6
+          class="fz-16 d-flex align-items-center text-default fw-400"
+          translate="COMMON.Adult"
+        ></h6>
+        <div class="d-flex align-items-center justify-content-center gap-2">
+          <div
+            *ngIf="amountAdult != 0"
+            (click)="decreaseAdult()"
+            class="d-flex justify-content-center align-items-center sz-circle-24 circle-border border-yellow cursor-pointer"
+          >
+            <img src="assets/images/decrease.png" alt="" />
+          </div>
+
+          <div class="">{{ amountAdult }}</div>
+
+          <input type="hidden" name="amountAdult" [ngModel]="amountAdult" />
+          <div
+            (click)="increaseAdult()"
+            class="d-flex justify-content-center align-items-center sz-circle-24 circle-border bg-yellow cursor-pointer"
+          >
+            <img src="assets/images/plus.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <!-- children -->
+      <div
+        class="box-shadow p-3 d-flex justify-content-between border-r-10 mt-2 flex-1 bg-grey-light"
+      >
+        <h6
+          class="d-flex align-items-center fz-16 text-default fw-400"
+          translate="COMMON.Child"
+        ></h6>
+        <div class="d-flex align-items-center justify-content-center gap-2">
+          <div
+            (click)="decreaseChildren()"
+            *ngIf="amountChildren != 0"
+            class="d-flex justify-content-center align-items-center sz-circle-24 circle-border border-yellow cursor-pointer"
+          >
+            <img src="assets/images/decrease.png" alt="" />
+          </div>
+
+          <div class="">{{ amountChildren }}</div>
+
+          <input
+            type="hidden"
+            name="amountChildren"
+            [ngModel]="amountChildren"
+          />
+          <div
+            (click)="increaseChildren()"
+            class="d-flex justify-content-center align-items-center sz-circle-24 circle-border bg-yellow cursor-pointer"
+          >
+            <img src="assets/images/plus.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5
+      class="mt-3 fz-16 fw-500 text-default px-20"
+      translate="msg.booking-layout-1"
+    ></h5>
+    <!-- DATE -->
+    <div *ngIf="errors" class="text-red px-20 mt-2">{{ errors.date }}</div>
+    <div class="px-20">
+      <div class="justify-content-start d-flex mt-2 gap-2">
+        <div
+          *ngFor="let item of timeToAppointment"
+          class="position-relative flex-1 d-flex flex-column justify-content-between gap-1"
+        >
+          <input
+            type="radio"
+            name="date"
+            class="position-absolute start-0 top-0 w-100 h-100 opacity-0 radio-datetime"
+            [value]="item.date"
+            [ngModel]="timeEdited.date"
+            ngModel
+            required
+          />
+          <div
+            class="flex-column justify-content-between align-items-center d-flex p-1 border-r-10 flex-1"
+          >
+            <div class="h-100 flex-1">
+              <img src="assets/images/mini-circle.svg" class="sz-4" alt="" />
+            </div>
+            <h6 class="fz-24 fw-400 text-default-light flex-1">
+              {{ item.date }}
+            </h6>
+            <h5 class="fz-14 fw-400 text-grey-light flex-1">{{ item.day }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOURS -->
+      <div *ngIf="errors" class="text-red mt-2">{{ errors.time }}</div>
+      <div class="justify-content-start d-flex mt-4 flex-wrap gap-2">
+        <div *ngFor="let item of timeCanChoice" class="position-relative">
+          <input
+            type="radio"
+            name="time"
+            class="cursor-pointer position-absolute start-0 top-0 w-100 h-100 opacity-0 radio-datetime"
+            [value]="item"
+            [ngModel]="timeEdited.time"
+            required
+          />
+          <div
+            class="py-1 px-3 flex-column justify-content-between align-items-center d-flex bg-white-bold p-1 border-r-10"
+          >
+            <h6 class="fz-14 fw-400 text-default-light">{{ item }}:00</h6>
+          </div>
+        </div>
+      </div>
+
+      <h6
+        class="fw-light mt-2 fz-14 fw-400 text-grey text-end"
+        [innerHTML]="'msg.booking-layout-4' | translate"
+      ></h6>
+
+      <div>
+        <h6
+          class="mt-3 text-default fw-500 fz-16"
+          translate="msg.booking-layout-6"
+        ></h6>
+
+        <textarea
+          name="description"
+          class="border-none border-r-10 bg-grey-bold text-grey-light py-3 px-4 mt-2 w-100"
+          [placeholder]="'msg.booking-layout-7' | translate"
+          cols="30"
+          rows="2"
+          [ngModel]="oldEdit.ReserDescription"
+        ></textarea>
+      </div>
+
+      <div>
+        <h6
+          class="mt-3 text-default fw-500 fz-16"
+          translate="msg.booking-layout-8"
+        ></h6>
+
+        <div
+          class="mt-3 d-flex flex-wrap"
+          style="column-gap: 8px; row-gap: 16px"
+        >
+          <div class="position-relative">
+            <input
+              type="radio"
+              name="subject"
+              class="cursor-pointer bg-red position-absolute w-100 h-100 start-0 top-0 opacity-0 food-item-checkbox fz-16 cursor-pointer"
+              value="Sinh Nhật"
+              [ngModel]="oldEdit.ReserSubject"
+            />
+            <label
+              class="border-grey-bold border-r-32 p-2 fz-16 text-grey py-2 px-4"
+              translate="COMMON.Birthday"
+            >
+            </label>
+          </div>
+
+          <div class="position-relative">
+            <input
+              type="radio"
+              name="subject"
+              class="bg-red position-absolute w-100 h-100 start-0 top-0 opacity-0 food-item-checkbox fz-16 cursor-pointer"
+              value="Hẹn hò"
+              [ngModel]="oldEdit.ReserSubject"
+            />
+            <label
+              class="border-grey-bold border-r-32 p-2 fz-16 text-grey py-2 px-4"
+              translate="COMMON.Dating"
+            >
+            </label>
+          </div>
+
+          <div class="position-relative">
+            <input
+              type="radio"
+              name="subject"
+              class="bg-red position-absolute w-100 h-100 start-0 top-0 opacity-0 food-item-checkbox fz-16 cursor-pointer"
+              value="Ăn tối"
+              [ngModel]="oldEdit.ReserSubject"
+            />
+            <label
+              class="border-grey-bold border-r-32 p-2 fz-16 text-grey py-2 px-4"
+              translate="COMMON.Dinner"
+            >
+            </label>
+          </div>
+
+          <div class="position-relative">
+            <input
+              type="radio"
+              name="subject"
+              class="bg-red position-absolute w-100 h-100 start-0 top-0 opacity-0 food-item-checkbox fz-16 cursor-pointer"
+              value="Công việc"
+              [ngModel]="oldEdit.ReserSubject"
+            />
+            <label
+              class="border-grey-bold border-r-32 p-2 fz-16 text-grey py-2 px-4"
+              translate="COMMON.Proposition"
+            >
+            </label>
+          </div>
+
+          <div class="position-relative">
+            <input
+              type="radio"
+              name="subject"
+              class="bg-red position-absolute w-100 h-100 start-0 top-0 opacity-0 food-item-checkbox fz-16 cursor-pointer"
+              value="Kỉ niệm"
+              [ngModel]="oldEdit.ReserSubject"
+            />
+            <label
+              class="border-grey-bold border-r-32 p-2 fz-16 text-grey py-2 px-4"
+              translate="COMMON.Anniversary"
+            >
+            </label>
+          </div>
+
+          <div class="position-relative">
+            <input
+              type="radio"
+              name="subject"
+              class="bg-red position-absolute w-100 h-100 start-0 top-0 opacity-0 food-item-checkbox fz-16 cursor-pointer"
+              value="Khác"
+              [ngModel]="oldEdit.ReserSubject"
+            />
+            <label
+              class="border-grey-bold border-r-32 p-2 fz-16 text-grey py-2 px-4"
+              translate="COMMON.OTHER"
+            >
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-3 mt-3">
+        <div class="h-100">
+          <img class="trans-y-10" src="assets/images/voucher-mini.png" alt="" />
+        </div>
+        <h6 class="text-yellow fz-16" translate="msg.booking-layout-9"></h6>
+        <div class="h-100">
+          <img
+            class="trans-y-10"
+            src="assets/images/angle-right-small-yerlow.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    [ngClass]="{ show: showBooking }"
+    class="p-20 start-0 bg-white box-shadow index-top mt-3 w-80 bottom-0 animation-bot-to-top show mx-auto"
+  >
+    <div *ngIf="errors" class="text-red mb-3" translate="err.Recheck"></div>
+
+    <button
+      (click)="submitToCreateBooking(bookingInfo.value)"
+      class="button button-yellow p-3 w-100"
+      translate="COMMON.Booking-now"
+    ></button>
+  </div>
+</form>
+<!-- <app-success-layout
+  [title]="'success.booking-layout' | translate"
+  [isBooking]="true"
+  [show]="showSuccess"
+  (emit)="catchEmit($event)"
+></app-success-layout> -->

@@ -1,0 +1,11 @@
+.food-img img:nth-child(2) {
+    top: 4%;
+    right: 4%;
+}
+
+.food-plus {
+    width: 25px;
+    height: 25px;
+    right: 4%;
+    bottom: 4%;
+}

@@ -1,0 +1,25 @@
+.disabled {
+    filter: brightness(60%) grayscale(50%);
+    opacity: 0.5;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.active {
+    filter: brightness(100%) grayscale(0);
+    opacity: 1;
+    border-radius: 50%;
+    border: 1px solid #FFC53D;
+}
+
+.food-img img:nth-child(2) {
+    top: 4%;
+    right: 4%;
+}
+
+.food-plus {
+    width: 25px;
+    height: 25px;
+    right: 4%;
+    bottom: 4%;
+}

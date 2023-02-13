@@ -1,0 +1,431 @@
+<div [@fadeInOut] class="voucher mt-3 mb-5">
+  <div class="container d-flex gap-4">
+    <div class="d-flex mb-5 flex-column flex-7">
+      <div class="d-flex gap-3 text-grey-light fw-400">
+        <span>Trang chủ</span>
+        <div class="h-100">
+          <img src="assets/images/angle-right.svg" class="trans-y-10" alt="" />
+        </div>
+        <span>Đơn hàng</span>
+      </div>
+
+      <div class="mt-3 d-flex align-items-center gap-2">
+        <div class="h-100">
+          <img
+            src="assets/images/confirm-order.svg"
+            alt=""
+            class="trans-y-10"
+          />
+        </div>
+        <h6 class="fz-30 fw-500 text-default">Xác nhận đơn hàng</h6>
+      </div>
+
+      <div class="mt-4">
+        <div class="shadow p-4 border-r-5">
+          <div class="d-flex gap-3 container">
+            <div
+              [ngClass]="{ 'border-yellow': selectShipping }"
+              class="border-r-10 border-grey w-50 d-flex flex-column justify-content-center align-items-center py-1 gap-2"
+              (click)="choiceShipping()"
+            >
+              <div class="h-100">
+                <img src="assets/images/shipper-red.png" alt="" />
+              </div>
+              <h6
+                class="fz-16 fw-500 text-default-light"
+                translate="msg.Confirm-order-1"
+              ></h6>
+            </div>
+
+            <div
+              [ngClass]="{ 'border-yellow': !selectShipping }"
+              (click)="choiceComing()"
+              class="border-r-10 border-grey w-50 d-flex flex-column justify-content-center align-items-center py-1 gap-2"
+            >
+              <div class="h-100">
+                <img src="assets/images/home-red.png" alt="" />
+              </div>
+              <h6
+                class="fz-16 fw-500 text-default-light"
+                translate="msg.Confirm-order-2"
+              ></h6>
+            </div>
+          </div>
+
+          <!-- option shipper -->
+          <div *ngIf="selectShipping" class="mt-4 w-60">
+            <div class="d-flex justify-content-between">
+              <h6
+                class="fz-16 fw-bold text-default-light"
+                translate="msg.Confirm-order-3"
+              ></h6>
+              <h5
+                class="fz-14 fw-500 text-blue"
+                translate="COMMON.Changes"
+              ></h5>
+            </div>
+
+            <div class="d-flex gap-2 align-items-center">
+              <div class="h-100">
+                <img
+                  src="assets/images/location-red.png"
+                  class="sz-16"
+                  style="height: 18px"
+                  alt=""
+                />
+              </div>
+
+              <input
+                type="text"
+                name="location"
+                id="location"
+                class="my-2 flex-1 border-r-10 px-2 py-2 border-grey fz-14"
+                [placeholder]="'msg.Confirm-order-4' | translate"
+              />
+            </div>
+          </div>
+
+          <div *ngIf="!selectShipping" class="mt-4 container">
+            <div class="d-flex flex-column">
+              <div class="d-flex gap-3 align-items-start position-relative">
+                <input
+                  class="position-absolute top-0 start-0 w-100 h-100 opacity-0 input-restaurant"
+                  type="radio"
+                  name="address"
+                  id="address"
+                />
+
+                <div
+                  class="border-grey-bolder circle-border sz-18 confirm-restaurant position-relative"
+                ></div>
+                <div class="d-flex flex-column gap-1">
+                  <h5 class="fz-16 text-default fw-500">
+                    Buzza Pizza - Trung Tâm Thương Mại NOWZONE
+                  </h5>
+                  <h6 class="fz-14 text-grey">
+                    Tầng 4 Nowzone, 235 Nguyễn Văn Cừ, P. Nguyễn Cư Trinh, Quận
+                    1, TP. HCM
+                  </h6>
+                </div>
+              </div>
+
+              <div class="d-flex gap-3 align-items-start position-relative">
+                <input
+                  class="position-absolute top-0 start-0 w-100 h-100 opacity-0 input-restaurant"
+                  type="radio"
+                  name="address"
+                  id="address"
+                />
+
+                <div
+                  class="border-grey-bolder circle-border sz-18 confirm-restaurant position-relative"
+                ></div>
+                <div class="d-flex flex-column gap-1">
+                  <h5 class="fz-16 text-default fw-500">
+                    Buzza Pizza -Nguyễn Thị Thập
+                  </h5>
+                  <h6 class="fz-14 text-grey">
+                    Tầng 1, 51 - 53 Nguyễn Thị Thập, P. Tân Hưng, Quận 7, TP.
+                    HCM
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 shadow p-4 border-r-5">
+        <div class="fz-20 text-default fw-400 mb-3">
+          Chọn phương thức thanh toán
+        </div>
+        <div class="d-flex flex-column gap-3">
+          <div class="d-flex gap-3">
+            <input
+              class="method position-absolute w-100 opacity-0"
+              type="radio"
+              name="123"
+              id="123"
+            />
+            <div class="sz-16 border-grey-light circle-border"></div>
+            <label for="123" class="d-flex gap-3">
+              <div class="h-100">
+                <img
+                  src="assets/images/hand-money.png"
+                  alt=""
+                  class="trans-y-10 sz-circle-28"
+                />
+              </div>
+              <h6 class="text-grey fz-14 fw-400">
+                Thanh toán tiền mặt khi nhận hàng
+              </h6></label
+            >
+          </div>
+
+          <div class="d-flex gap-3">
+            <input
+              class="method position-absolute w-100 opacity-0"
+              type="radio"
+              name="123"
+              id="123"
+            />
+            <div class="sz-16 border-grey-light circle-border"></div>
+            <label for="123" class="d-flex gap-3">
+              <div class="h-100">
+                <img
+                  src="assets/images/momo.png"
+                  alt=""
+                  class="trans-y-10 sz-circle-28"
+                />
+              </div>
+              <h6 class="text-grey fz-14 fw-400">
+                Thanh toán bằng MoMo
+              </h6></label
+            >
+          </div>
+
+          <div class="d-flex gap-3">
+            <input
+              class="method position-absolute w-100 opacity-0"
+              type="radio"
+              name="123"
+              id="123"
+            />
+            <div class="sz-16 border-grey-light circle-border"></div>
+            <label for="123" class="d-flex gap-3">
+              <div class="h-100">
+                <img
+                  src="assets/images/zalopay.svg"
+                  alt=""
+                  class="trans-y-10 sz-circle-28"
+                />
+              </div>
+              <h6 class="text-grey fz-14 fw-400">
+                Thanh toán bằng Zalo Pay
+              </h6></label
+            >
+          </div>
+          <div class="d-flex gap-3">
+            <input
+              class="method position-absolute w-100 opacity-0"
+              type="radio"
+              name="123"
+              id="123"
+            />
+            <div class="sz-16 border-grey-light circle-border"></div>
+            <label for="123" class="d-flex gap-3">
+              <div class="h-100">
+                <img
+                  src="assets/images/credit-card.svg"
+                  alt=""
+                  class="trans-y-10 sz-circle-28"
+                />
+              </div>
+              <h6 class="text-grey fz-14 fw-400">
+                Thanh toán bằng thẻ quốc tế Visa, Master, JCB, Napas
+              </h6></label
+            >
+          </div>
+
+          <div class="px-4 gap-3 d-flex">
+            <img style="height: 16px" src="assets/images/visa.png" alt="" />
+            <img
+              style="height: 20px"
+              src="assets/images/master-card.png"
+              alt=""
+            />
+            <img style="height: 24px" src="assets/images/jcb.png" alt="" />
+            <img style="height: 28px" src="assets/images/napas.png" alt="" />
+          </div>
+
+          <div class="d-flex gap-3">
+            <div
+              routerLink="/menu-total"
+              class="button button-white d-flex gap-2 px-2 trans-y-10"
+            >
+              + Thêm thẻ mới
+            </div> 
+            <h5 class="fz-14 fw-500 text-blue">Chỉnh sửa</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h6 class="fz-24 text-grey fw-500 mt-4 mb-3">Ngon hơn khi ăn kèm</h6>
+        <div class="d-flex gap-2">
+          <app-food-item [item]="item" *ngFor="let item of foodList"></app-food-item>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex-5" style="height: fit-content">
+      <div class="shadow p-4 border-r-5 mt-3">
+        <div class="d-flex justify-content-between">
+          <h6
+            class="fz-16 fw-bold text-default-light"
+            translate="msg.Confirm-order-5"
+          ></h6>
+
+          <div
+            routerLink="/menu-total"
+            class="button button-white d-flex gap-2 px-2 trans-y-10"
+          >
+            + {{ "COMMON.More-dishes" | translate }}
+          </div>
+        </div>
+
+        <!-- border solid top -->
+        <div class="d-flex py-3 align-items-center confirm-border-top gap-4">
+          <div class="h-100">
+            <img src="assets/images/pen-yellow.svg" alt="" class="trans-y-25" />
+          </div>
+
+          <div class="d-flex gap-3 align-items-center">
+            <div class="h-100 d-flex">
+              <img src="assets/images/buzza-circle-red.png" alt="" />
+            </div>
+
+            <div class="d-flex flex-column gap-2 justify-content-center">
+              <h5 class="fz-14 fw-500 text-default-light">Sushi Cá Hồi</h5>
+              <h6 class="fz-14 text-grey">Sốt Tonkatsu</h6>
+            </div>
+          </div>
+
+          <div class="d-flex gap-1 align-items-center mx-auto">
+            <div class="">
+              <img src="assets/images/knife-gold.svg" alt="" />
+            </div>
+            <h6 class="fz-16 fw-500 text-default">1</h6>
+          </div>
+
+          <div class="d-flex flex-column gap-2 align-items-end">
+            <h5 class="fz-16 fw-500 text-red">149,000đ</h5>
+            <div class="h-100">
+              <img src="assets/images/trash-grey.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="d-flex py-3 align-items-center confirm-border-top gap-4">
+          <div class="h-100">
+            <img src="assets/images/pen-yellow.svg" alt="" class="trans-y-25" />
+          </div>
+
+          <div class="d-flex gap-3 align-items-center">
+            <div class="h-100">
+              <img src="assets/images/buzza-circle-red.png" alt="" />
+            </div>
+
+            <div class="d-flex flex-column gap-2 justify-content-center">
+              <h5 class="fz-14 fw-500 text-default-light">Sushi Cá Hồi</h5>
+              <h6 class="fz-14 text-grey">Sốt Tonkatsu</h6>
+            </div>
+          </div>
+
+          <div class="d-flex gap-1 align-items-center mx-auto">
+            <div class="">
+              <img src="assets/images/knife-gold.svg" alt="" />
+            </div>
+            <h6 class="fz-16 fw-500 text-default">1</h6>
+          </div>
+
+          <div class="d-flex flex-column gap-2 align-items-end">
+            <h5 class="fz-16 fw-500 text-red">149,000đ</h5>
+            <div class="h-100">
+              <img src="assets/images/trash-grey.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 shadow p-4 border-r-5">
+        <div class="container pt-3 pb-4 mt-3 border-bottom-grey">
+          <div class="d-flex justify-content-between mb-3">
+            <h6
+              class="fz-16 fw-bold text-default-light"
+              translate="COMMON.Promotion"
+            ></h6>
+            <h5
+              class="fz-14 fw-500 text-blue"
+              translate="COMMON.Choose-another-code"
+            ></h5>
+          </div>
+          <div class="d-flex flex-column gap-20">
+            <app-voucher-item
+              [item]="item"
+              *ngFor="let item of voucher"
+            ></app-voucher-item>
+          </div>
+        </div>
+
+        <div class="container py-3 mt-3">
+          <div class="d-flex justify-content-between">
+            <h6
+              class="fz-16 fw-bold text-default-light fw-bold mb-3"
+              translate="COMMON.Note"
+            ></h6>
+          </div>
+
+          <div class="d-flex">
+            <label
+              for="note"
+              class="bg-grey-light border-grey p-3 border-left-5"
+              style="border-right-width: 0"
+            >
+              <img src="assets/images/note.svg" alt="" />
+            </label>
+
+            <input
+              type="text"
+              name="note"
+              id="note"
+              [placeholder]="'msg.Confirm-order-10' | translate"
+              class="border-grey w-100 px-20 border-right-5 px-3"
+            />
+          </div>
+        </div>
+
+        <div class="container d-flex flex-column mt-3 gap-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="fz-14 text-grey">{{ "COMMON.Total" | translate }}:</h6>
+            <h5 class="fz-16 text-default-light">148,000 đ</h5>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="fz-14 text-grey">
+              {{ "COMMON.Delivery-charges" | translate }}:
+            </h6>
+            <h5 class="fz-16 text-default-light">0 đ</h5>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="fz-14 text-yellow">Voucher:</h6>
+            <div class="h-100">
+              <img
+                class="trans-y-10"
+                src="assets/images/question-circle.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="w-100" style="border-top: 1px dashed #bfbfbf"></div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="fz-20 text-default">
+              {{ "COMMON.Provisional" | translate }}:
+            </h6>
+            <h5 class="fz-20 text-red">148,000 đ</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex gap-3 align-items-center justify-content-center">
+        <div class="h-100">
+          <img src="assets/images/trash-yellow.svg" alt="" />
+        </div>
+
+        <h6 class="text-yellow fz-16 fw-400">Xóa đơn hàng</h6>
+      </div>
+    </div>
+  </div>
+</div>

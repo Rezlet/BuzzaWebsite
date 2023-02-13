@@ -1,0 +1,55 @@
+<div [@fadeInOut] class="voucher mt-3 mb-5">
+  <div class="container">
+    <div class="d-flex mb-5 flex-column">
+      <div class="d-flex gap-3 text-grey-light fw-400">
+        <span>Trang chủ</span>
+        <div class="h-100">
+          <img src="assets/images/angle-right.svg" class="trans-y-10" alt="" />
+        </div>
+        <span>Ưu đãi</span>
+      </div>
+
+      <div class="mt-3 d-flex justify-content-between">
+        <label class="border-24 shadow switch">
+          <input type="checkbox" id="toggle_vat" class="toggle_vat" />
+          <div class="slider round">
+            <span class="slider_text">
+              <span class="f-16 fw-700 off" (click)="toggleVoucher()"
+                >Ưu đãi của bạn</span
+              >
+              <span class="f-16 fw-700 on" (click)="toggleVoucher()"
+                >Đổi ưu đãi</span
+              >
+            </span>
+          </div>
+        </label>
+
+        <div></div>
+      </div>
+    </div>
+    <div class="d-flex gap-56">
+      <div class="flex-1 position-relative">
+        <div></div>
+        <div
+          class="d-flex gap-20 justify-content-evenly"
+          [ngClass]="{ 'd-none': showVoucher }"
+        >
+          <div>
+            <div class="d-flex flex-column gap-20">
+              <app-voucher-item
+                [item]="item"
+                *ngFor="let item of voucher"
+              ></app-voucher-item>
+            </div>
+          </div>
+          <div>
+            <app-voucher-item-disable></app-voucher-item-disable>
+          </div>
+        </div>
+        <div [ngClass]="{ 'd-none': showChange }">
+          <app-change-voucher></app-change-voucher>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

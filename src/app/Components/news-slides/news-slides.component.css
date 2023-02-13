@@ -1,0 +1,32 @@
+.news-slides-swiper-slide {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 6px 8px rgb(0 0 0 / 15%);
+}
+
+.news-slides-swiper-button {
+  top: 50%;
+  bottom: 50%;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  transform: translateY(-50%);
+  background-color: #ffc53d;
+  z-index: 2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-slides-swiper-button.navi-back {
+  left: 0%;
+  transform: translateX(-25%);
+  
+}
+
+.news-slides-swiper-button.navi-next {
+  right: 0;
+  transform: translateX(25%);
+
+}

@@ -1,0 +1,194 @@
+<div class="table-booking-details shadow border-r-32">
+  <div *ngIf="tableOrderDetails === true; then addOrder; else details"></div>
+  <ng-template #addOrder>
+    <div>
+      <div class="header-cart-button mt-118 d-flex justify-content-center">
+        <button
+          class="d-flex justify-content-center f-16 text-w bgc-yellow p-10-18 border-20 gap-8"
+        >
+          <img
+            src="assets/images/buzza/plus-circle.png"
+            alt="Thêm vào giỏ hàng"
+          />
+          <p>Thêm món vào giỏ hàng ngay</p>
+        </button>
+      </div>
+      <div class="message position-absolute bg-white p-22-42 border-30 shadow">
+        <div class="message-box d-flex">
+          <img
+            class="object-contain"
+            src="assets/images/buzza/check-green.png"
+            alt=""
+          />
+          <p class="f-14 fw-400 text-green-light ms-2">
+            Hủy đặt bàn thành công
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #details>
+    <div
+      class="bg-white border-r-32 pt-4 pb-5"
+      *ngFor="let item of tableBookings"
+      [ngClass]="{ 'd-none': tableOrderDetails }"
+    >
+      <div class="d-flex justify-content-between ps-4 pe-4">
+        <div class="d-flex gap-20">
+          <div>
+            <img src="assets/images/buzza/table-booking.png" class="d-block" />
+          </div>
+          <div class="w-45">
+            <div class="d-flex align-items-center mb-2">
+              <img
+                class="me-3 w-19 object-contain"
+                src="assets/images/buzza/booking-home.png"
+                alt=""
+              />
+              <h5 class="text-default f-16 fw-500 line-height-24">
+                {{ item.home }}
+              </h5>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <img
+                class="me-3 w-19 object-contain"
+                src="assets/images/buzza/booking-location.png"
+                alt=""
+              />
+              <h5 class="f-12 fw-400 text-grey line-height-20">
+                {{ item.location }}
+              </h5>
+            </div>
+            <div class="d-flex gap-56">
+              <div class="d-flex align-items-end">
+                <img
+                  class="me-1"
+                  src="assets/images/buzza/User Male.png"
+                  alt=""
+                />
+                <span class="f-22 text-default fw-500">x{{ item.user }} </span>
+              </div>
+              <div class="d-flex align-items-end">
+                <img
+                  class="me-1"
+                  src="assets/images/buzza/Babys Room.png"
+                  alt=""
+                />
+                <span class="f-22 text-default fw-500">x{{ item.baby }} </span>
+              </div>
+              <div class="d-flex align-items-end">
+                <img
+                  class="me-1"
+                  src="assets/images/buzza/Tableyellow.png"
+                  alt=""
+                />
+                <span class="f-22 text-default fw-500">x{{ item.table }} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-end">
+          <div class="mb-1">
+            <div
+              *ngIf="toggle === true; then trueCondition; else falseCondition"
+            ></div>
+            <ng-template #trueCondition>
+              <button class="bgc-green p-2-19 border-5">
+                <img class="me-2" src="assets/images/buzza/check.png" alt="" />
+                <span class="f-16 fw-400 text-w">{{ finish }}</span>
+              </button>
+            </ng-template>
+            <ng-template #falseCondition>
+              <button class="bgc-yellow p-2-8 border-5">
+                <img
+                  class="me-2"
+                  src="assets/images/buzza/booking-rotate.png"
+                  alt=""
+                />
+                <span class="f-16 fw-400">{{ process }}</span>
+              </button>
+            </ng-template>
+          </div>
+          <div class="d-flex justify-content-end align-items-center mb-1">
+            <img
+              class="w-19 object-contain me-2"
+              src="assets/images/buzza/clock.png"
+              alt=""
+            />
+            <span class="f-16 fw-400 text-grey-light">{{ item.date }}</span>
+          </div>
+          <div class="mb-1">
+            <h1 class="f-38 fw-500 text-grey-light">{{ item.time2 }}</h1>
+          </div>
+          <div class="d-flex justify-content-end align-items-center mb-1">
+            <img
+              class="w-19 object-contain me-2"
+              src="assets/images/buzza/star.png"
+              alt=""
+            />
+            <span class="f-15 fw-500 text-yellow">{{ item.star }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="pb-2 border-bottom mt-3">
+        <p class="f-12 fw-400 text-grey-light ms-4">{{ follow }}</p>
+      </div>
+      <div
+        class="d-flex align-items-center justify-content-between ps-4 pe-4 mt-4"
+      >
+        <div class="d-flex align-items-center">
+          <div class="text-center">
+            <img
+              class="w-28"
+              src="assets/images/buzza/booking-phone.png"
+              alt=""
+            />
+            <p class="f-12 fw-400 text-grey-light2">{{ receiving }}</p>
+          </div>
+          <div class="line bgc-grey border-20">
+            <div [ngClass]="{ 'line-color': toggle }"></div>
+          </div>
+          <div class="text-center">
+            <img
+              class="w-28"
+              src="assets/images/buzza/table-prepare.png"
+              alt=""
+              (click)="clickEvent()"
+            />
+            <p class="f-12 fw-400 text-grey-light2">{{ prepare }}</p>
+          </div>
+        </div>
+        <div>
+          <div
+            *ngIf="toggle === true; then trueCondition1; else falseCondition1"
+          ></div>
+          <ng-template #trueCondition1>
+            <button
+              class="border border-danger text-red border-30 f-16 fw-500 p-9-46"
+            >
+              {{ detail }}
+            </button>
+            <button class="text-w bgc-blue border-30 f-16 fw-500 p-10-42 ms-2">
+              <img src="assets/images/buzza/reload.png" alt="" />
+              <span class="ms-2">{{ reOrder }}</span>
+            </button>
+          </ng-template>
+          <ng-template #falseCondition1>
+            <button
+              class="border border-danger text-red border-30 f-16 fw-500 p-9-44"
+              (click)="handleCancel()"
+            >
+              {{ cancel }}
+            </button>
+            <button
+              class="text-w bgc-yellow border-30 f-16 fw-500 p-10-37 ms-2"
+              [ngClass]="toggle == true ? 'fade-out' : ''"
+            >
+              {{ edit }}
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

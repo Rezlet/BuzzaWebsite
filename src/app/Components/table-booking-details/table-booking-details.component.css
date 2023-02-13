@@ -1,0 +1,27 @@
+.line {
+    width: 80px;
+    height: 6px;
+    position: relative;
+}
+
+.line-color {
+    height: 100%;
+    width: 100%;
+    background-color: #CF1322;
+    border-radius: 20px;
+}
+
+.message {
+    top: -16%;
+    right: -16%;
+    animation: fadeIn 2s linear;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

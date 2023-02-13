@@ -1,0 +1,20 @@
+<div class="food-list border-15 bg-white position-relative shadow pointer">
+  <div (click)="showOverlay()" class="food-img position-relative">
+    <img class="border-15" [src]="item.src" alt="" />
+    <img class="position-absolute" [src]="item.img" alt="" />
+  </div>
+  <div>
+    <div class="p-12">
+      <img class="me-2" [src]="item.logo" alt="" />
+      <span class="f-12 fw-400">{{ item.brand }}</span>
+      <p class="f-14 fw-500 mt-1 mb-1">{{ item.title }}</p>
+      <h4 class="text-sunset mb-2">{{ item.price }}</h4>
+    </div>
+  </div>
+  <div
+    class="food-plus bgc-red border-circle text-center text-w position-absolute cs-p"
+  >
+    <p>+</p>
+  </div>
+  <app-overlay [show]="isShowOverlay" (emit)="catchEmit($event)"></app-overlay>
+</div>

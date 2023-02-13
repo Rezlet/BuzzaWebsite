@@ -1,0 +1,67 @@
+.food-img img:nth-child(2) {
+    top: 4%;
+    right: 4%;
+}
+
+.food-plus {
+    width: 25px;
+    height: 25px;
+    right: 4%;
+    bottom: 4%;
+}
+
+.overlay-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.details-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    width: 574px;
+    height: 43px;
+}
+
+.wrapper {
+    width: 574px;
+    border: 1px solid #D9D9D9;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.topping {
+    width: 572px;
+    height: 42px;
+    border: 1px solid #D9D9D9;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    overflow: hidden;
+}
+
+.quantity {
+    right: 4%;
+    top: 10%;
+}
+
+.quantity > div > button {
+    background-color: #CF1322;
+    width: 32px;
+    height: 32px;
+}
+
+.close {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}

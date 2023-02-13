@@ -1,0 +1,44 @@
+<div [@fadeInOut]>
+  <div
+    class="w-100 index-bottom p-4 d-flex flex-column justify-content-evenly"
+    style="background-image: url('assets/images/menu-img.png'); height: 346px"
+  >
+    <div class="d-flex gap-3 text-white fw-400 index-middle container">
+      <span>Trang chủ</span>
+      <div class="h-100">
+        <img src="assets/images/angle-right.svg" class="trans-y-10" alt="" />
+      </div>
+      <span>Ưu đãi</span>
+    </div>
+
+    <div class="container">
+      <h1 class="fz-38 fw-500 text-white w-50">
+        Tích điểm thành viên (Áp dụng cho các Khách đặt bàn trước)
+      </h1>
+    </div>
+
+    <div class="container">
+      <div class="w-50 d-flex gap-3 align-items-center">
+        <button class="flex-1 button button-yellow text-default">
+          Đặt ngay
+        </button>
+        <div class="flex-column d-flex flex-1">
+          <div class="d-flex text-white gap-1 align-items-end">
+            <h6 class="fz-16 fw-500 mb-1">Hoặc gọi đến</h6>
+            <h1 class="fz-24 fw-500">1900 989 807</h1>
+          </div>
+
+          <h6 class="text-white fz-16 fw-500">
+            Để đặt bàn và được tư vấn thêm.
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3 mb-5">
+    <!-- phải viết logic vòng lặp -->
+    <app-branch-item></app-branch-item>
+
+    <app-branch-item></app-branch-item>
+  </div>
+</div>

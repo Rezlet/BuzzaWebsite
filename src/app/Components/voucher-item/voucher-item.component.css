@@ -1,0 +1,30 @@
+.voucher-item {
+    max-width: 530px;
+    height: 182px;
+    max-height: 100%;
+}
+
+.line {
+    border-right: 3px dashed #8C8C8C;
+    height: 100%;
+}
+
+.up-border {
+    background: #e9e9e9;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -16%;
+    right: -16%;
+    border-radius: 50%;
+}
+
+.down-border {
+    background: #e9e9e9;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: -16%;
+    right: -16%;
+    border-radius: 50%;
+}

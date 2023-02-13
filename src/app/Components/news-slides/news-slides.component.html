@@ -1,0 +1,50 @@
+<div>
+  <div class="container position-relative">
+    <div class="d-flex justify-content-between mt-5 mb-3 cs-p">
+      <h5 class="text-default f-24 fw-bold">Tin Tức Mới nhất</h5>
+
+      <button class="d-flex align-item-center text-yellow fw-bold f-16 gap-2">
+        <p>Xem tất cả</p>
+        <div class="h-100">
+          <img class="trans-y-10" src="assets\images\buzza\angles-right.png" alt="" />
+        </div>
+      </button>
+    </div>
+
+    <swiper [config]="config" #gallery [navigation]="true" [virtual]="true">
+      <!-- (swiper)="onSwiper($event)" -->
+
+      <ng-template swiperSlide *ngFor="let slide of slides">
+        <div class="news-slides-swiper-slide">
+          <div class="news-slides-image">
+            <img class="w-100" style="height: 210px;" [src]="slide.ImageTitle" alt="" />
+          </div>
+          <div class="d-flex flex-column gap-3 mt-3 px-4 pb-4 mb-2">
+            <p class="fw-light text-grey-light f-12">{{ slide.date }}</p>
+            <h5 class="text-default fw-bold limit-line-2">
+              {{ slide.Title }}
+            </h5>
+            <h6 class="fw-light text-grey-light limit-line-2">
+              {{ slide.Content }}
+            </h6>
+            <a
+              class="d-flex gap-2 align-items-center justify-content-end"
+              href=""
+            >
+              <p class="text-yellow fw-bold f-14">Đọc tiếp</p>
+              <div class="d-flex flex-column h-100">
+                <img src="assets\images\buzza\angle-right.png" alt="" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+    <button (click)="slidePrev()" class="news-slides-swiper-button navi-back">
+      <img src="assets\images\buzza\angle-left.png" alt="" />
+    </button>
+    <button (click)="slideNext()" class="news-slides-swiper-button navi-next">
+      <img src="assets\images\buzza\angle-right-light.png" alt="" />
+    </button>
+  </div>
+</div>

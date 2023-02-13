@@ -1,0 +1,17 @@
+import { fadeInOut } from './../../Services/animation';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
+  animations: [fadeInOut]
+})
+export class CartComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

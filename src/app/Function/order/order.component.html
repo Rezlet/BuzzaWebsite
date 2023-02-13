@@ -1,0 +1,49 @@
+<div [@fadeInOut] class="contact mt-5 mb-5">
+    <div class="container">
+        <div>
+            <div class="logo d-flex justify-content-center gap-8">
+                <!-- <div *ngFor="let logo of logos">
+                    <img [src]="logo.src" alt="">
+                </div> -->
+                <div class="logo-brand cs-p disabled" [ngClass]="{'active': buzza}">
+                    <img src="assets/images/namsan/buzza-circle.png" alt="" (click)="showBuzza()">
+                </div>
+                <div class="logo-brand cs-p disabled" [ngClass]="{'active': sushi}">
+                    <img src="assets/images/namsan/sushi-circle.png" alt="" (click)="showSushi()">
+                </div>
+                <div class="logo-brand cs-p disabled" [ngClass]="{'active': grill}">
+                    <img src="assets/images/namsan/grill-circle.png" alt="" (click)="showGrill()">
+                </div>
+            </div>
+            <div class="d-flex mt-4">
+                <div class="me-4">
+                    <app-category></app-category>
+                </div>
+                <div class="w-100 gap-24 d-flex flex-column gap-24 ms-5">
+                    <!-- <app-food-item></app-food-item> -->
+                    <div class="main d-flex justify-content-center gap-20 flex-wrap">
+                        <div *ngFor="let food of foodlist">
+                            <div class="food-list border-15 bg-white position-relative shadow">
+                                <div class="food-img position-relative">
+                                    <img class="border-15" [src]="food.src" alt="">
+                                    <img class="position-absolute" [src]="food.img" alt="">
+                                </div>
+                                <div>
+                                    <div class="p-12">
+                                        <img class="me-2" [src]="food.logo" alt="">
+                                        <span class="f-12 fw-400">{{ food.brand }}</span>
+                                        <p class="f-14 fw-500 mt-1 mb-1">{{ food.title }}</p>
+                                        <h4 class="text-sunset mb-2">{{ food.price }}</h4>
+                                    </div>
+                                </div>
+                                <div class="food-plus bgc-red border-circle text-center text-w position-absolute cs-p">
+                                    <p>+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
